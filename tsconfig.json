@@ -1,0 +1,3 @@
+{
+  "extends": "@mosty-repo/config/tsconfig.base.json"
+}

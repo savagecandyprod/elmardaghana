@@ -1,0 +1,31 @@
+{
+  "name": "mosty-repo",
+  "private": true,
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
+  "type": "module",
+  "scripts": {
+    "dev": "turbo run dev",
+    "build": "turbo run build",
+    "check-types": "turbo run check-types",
+    "dev:web": "turbo run dev -F web --",
+    "dev:server": "turbo run dev -F @mosty-repo/backend --",
+    "dev:setup": "turbo run dev:setup -F @mosty-repo/backend --",
+    "check": "biome check --write ."
+  },
+  "dependencies": {
+    "@mosty-repo/env": "workspace:*",
+    "dotenv": "catalog:",
+    "zod": "catalog:"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "^2.5.6",
+    "@mosty-repo/config": "workspace:*",
+    "@types/node": "catalog:",
+    "turbo": "^2.10.7",
+    "typescript": "catalog:"
+  },
+  "packageManager": "pnpm@10.33.0"
+}
