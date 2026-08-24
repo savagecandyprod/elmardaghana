@@ -10,5 +10,6 @@ export default defineSchema({
 
 	tickets: defineTable({
 		phoneNumber: v.number(),
-	}).index("by_phoneNumber", ["phoneNumber"]), // 👈 Add this index
+		attended: v.optional(v.boolean()),
+	}).index("by_phoneNumber", ["phoneNumber"]),
 });

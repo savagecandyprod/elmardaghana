@@ -13,7 +13,10 @@ export const getTicket = query({
 
 		// 2. Fetch ticket safely
 		const ticket = await ctx.db.get(normalizedId);
-		return ticket;
+
+		if (!ticket?.attended) {
+			return ticket;
+		}
 	},
 });
 
@@ -37,5 +40,29 @@ export const addTicket = mutation({
 		});
 
 		return ticketId;
+	},
+});
+
+export const checkInTicket = mutation({
+	args: { ticketId: v.string() },
+	handler: async (ctx, args) => {
+		const normalizedId = ctx.db.normalizeId("tickets", args.ticketId);
+
+		if (!normalizedId) {
+			return null;
+		}
+
+		const ticket = await ctx.db.get(normalizedId);
+
+		if (!ticket) {
+			return null;
+		}
+
+		// Update attended status to true
+		await ctx.db.patch(normalizedId, {
+			attended: true,
+		});
+
+		return { ...ticket, attended: true };
 	},
 });
