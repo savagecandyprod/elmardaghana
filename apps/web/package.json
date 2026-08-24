@@ -1,36 +1,43 @@
 {
-  "name": "web",
-  "version": "0.1.0",
-  "private": true,
-  "scripts": {
-    "dev": "next dev --port 3001",
-    "build": "next build",
-    "check-types": "tsc --noEmit",
-    "start": "next start"
-  },
-  "dependencies": {
-    "@mosty-repo/backend": "workspace:*",
-    "@mosty-repo/env": "workspace:*",
-    "@mosty-repo/ui": "workspace:*",
-    "@swc/helpers": "^0.5.23",
-    "babel-plugin-react-compiler": "^1.0.0",
-    "convex": "catalog:",
-    "dotenv": "catalog:",
-    "lucide-react": "catalog:",
-    "next": "^16.3.0",
-    "next-themes": "catalog:",
-    "react": "catalog:",
-    "react-dom": "catalog:",
-    "sonner": "catalog:",
-    "zod": "catalog:"
-  },
-  "devDependencies": {
-    "@mosty-repo/config": "workspace:*",
-    "@tailwindcss/postcss": "catalog:",
-    "@types/node": "catalog:",
-    "@types/react": "catalog:",
-    "@types/react-dom": "catalog:",
-    "tailwindcss": "catalog:",
-    "typescript": "catalog:"
-  }
+	"name": "web",
+	"version": "0.1.0",
+	"private": true,
+	"scripts": {
+		"dev": "next dev --port 3001",
+		"build": "next build",
+		"check-types": "tsc --noEmit",
+		"start": "next start",
+		"deploy": "opennextjs-cloudflare build && opennextjs-cloudflare deploy"
+	},
+	"dependencies": {
+		"@hookform/resolvers": "^5.9.1",
+		"@mosty-repo/backend": "workspace:*",
+		"@mosty-repo/env": "workspace:*",
+		"@mosty-repo/ui": "workspace:*",
+		"@opennextjs/cloudflare": "^1.20.2",
+		"@swc/helpers": "^0.5.23",
+		"babel-plugin-react-compiler": "^1.0.0",
+		"convex": "catalog:",
+		"dotenv": "catalog:",
+		"lucide-react": "catalog:",
+		"next": "^16.3.0",
+		"next-qrcode": "^2.5.1",
+		"next-themes": "catalog:",
+		"react": "catalog:",
+		"react-dom": "catalog:",
+		"react-hook-form": "^7.86.0",
+		"react-icons": "^5.7.0",
+		"sonner": "catalog:",
+		"zod": "catalog:"
+	},
+	"devDependencies": {
+		"@mosty-repo/config": "workspace:*",
+		"@tailwindcss/postcss": "catalog:",
+		"@types/node": "catalog:",
+		"@types/react": "catalog:",
+		"@types/react-dom": "catalog:",
+		"tailwindcss": "catalog:",
+		"typescript": "catalog:",
+		"wrangler": "^4.125.0"
+	}
 }
