@@ -10,8 +10,8 @@ import Link from "next/link";
 import { useQRCode } from "next-qrcode";
 import { use } from "react";
 import { CiInstagram } from "react-icons/ci";
-import { FaTiktok, FaYoutube } from "react-icons/fa";
 import { ImLocation } from "react-icons/im";
+import { BackgroundLines } from "@/components/ui/background-lines";
 
 interface PageProps {
 	params: Promise<{
@@ -74,11 +74,16 @@ export default function EventQRPage({ params }: PageProps) {
 
 	// 3. Valid Ticket State
 	return (
-		<div className="flex min-h-screen items-center justify-center p-4">
-			<Card className="flex w-full max-w-sm flex-col items-center p-6 text-center shadow-lg">
+		<BackgroundLines className="flex min-h-screen flex-col items-center justify-center gap-6 p-4">
+			{/* logo */}
+			<h2 className="relative bg-gradient-to-b from-neutral-900 to-neutral-700 bg-clip-text py-2 text-center font-bold font-sans text-4xl text-transparent uppercase tracking-tight md:py-10 md:text-4xl lg:text-7xl dark:from-neutral-600 dark:to-white">
+				elmardaghana.
+			</h2>
+
+			<Card className="z-50 flex w-full max-w-sm flex-col items-center bg-transparent p-6 text-center shadow-lg">
 				<CardContent className="flex w-full flex-col items-center gap-6 p-0">
 					{/* QR Code Container */}
-					<div className="rounded-2xl border bg-white p-3 shadow-sm">
+					<div className="rounded-2xl border p-3 shadow-sm">
 						<Image
 							text={eventId}
 							options={{
@@ -96,37 +101,15 @@ export default function EventQRPage({ params }: PageProps) {
 						/>
 					</div>
 
-					<p className="break-all font-mono text-muted-foreground text-xs">
-						ID: {eventId}
-					</p>
-
 					{/* Social Media Links Row */}
 					<div className="flex items-center justify-center gap-4 py-2">
 						<a
-							href="https://instagram.com"
+							href="https://instagram.com/elmardaghana"
 							target="_blank"
 							rel="noreferrer"
 							className="rounded-full bg-gray-100 p-2.5 text-gray-700 transition hover:bg-gray-200 hover:text-black"
 						>
-							<CiInstagram className="h-5 w-5" />
-						</a>
-
-						<a
-							href="https://youtube.com"
-							target="_blank"
-							rel="noreferrer"
-							className="rounded-full bg-gray-100 p-2.5 text-gray-700 transition hover:bg-gray-200 hover:text-black"
-						>
-							<FaYoutube className="h-5 w-5" />
-						</a>
-
-						<a
-							href="https://tiktok.com"
-							target="_blank"
-							rel="noreferrer"
-							className="rounded-full bg-gray-100 p-2.5 text-gray-700 transition hover:bg-gray-200 hover:text-black"
-						>
-							<FaTiktok className="h-5 w-5" />
+							<CiInstagram className="h-5 w-5 text-red-900" />
 						</a>
 					</div>
 
@@ -154,9 +137,15 @@ export default function EventQRPage({ params }: PageProps) {
 								Phone Number
 							</Button>
 						</a>
+
+						<div>
+							<h1 className="text-gray-500 text-sm">
+								استوديو نغم 12 شارع شركه الكهربيه خلف كليه هندسه الابرهيميه
+							</h1>
+						</div>
 					</div>
 				</CardContent>
 			</Card>
-		</div>
+		</BackgroundLines>
 	);
 }
