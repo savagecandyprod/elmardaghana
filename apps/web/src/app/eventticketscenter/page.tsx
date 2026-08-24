@@ -142,7 +142,7 @@ export default function Home() {
 						Your Ticket QR Code
 					</CardTitle>
 					<Image
-						text={`http://localhost:3001/${ticketId}`}
+						text={`https://elmardaghana.savagecandyprod.workers.dev/${ticketId}`}
 						options={{
 							type: "image/jpeg",
 							quality: 0.3,

@@ -29,8 +29,8 @@ export default function EventQRPage({ params }: PageProps) {
 	});
 
 	// Replace with your actual target location and phone number
-	const locationUrl = "https://maps.google.com/?q=30.0444,31.2357";
-	const phoneNumber = "+12345678901";
+	const locationUrl = "https://maps.app.goo.gl/z1SZvKvrwayL3pGx5";
+	const phoneNumber = "01030268871";
 
 	// 1. Loading State
 	if (ticket === undefined) {
