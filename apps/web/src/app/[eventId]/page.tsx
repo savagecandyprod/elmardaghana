@@ -85,7 +85,7 @@ export default function EventQRPage({ params }: PageProps) {
 					{/* QR Code Container */}
 					<div className="rounded-2xl border p-3 shadow-sm">
 						<Image
-							text={eventId}
+							text={`https://elmardaghana.savagecandyprod.workers.dev/${eventId}`}
 							options={{
 								type: "image/jpeg",
 								quality: 0.3,
