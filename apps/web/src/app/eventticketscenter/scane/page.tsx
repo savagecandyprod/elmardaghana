@@ -23,14 +23,12 @@ export default function ScanPage() {
 	>("idle");
 	const [errorMessage, setErrorMessage] = useState<string>("");
 
-	// Called when @yudiel/react-qr-scanner detects a QR code
 	async function handleScan(detectedCodes: IDetectedBarcode[]) {
 		if (status !== "idle" || detectedCodes.length === 0) return;
 
 		const rawText = detectedCodes[0]?.rawValue || "";
 		if (!rawText) return;
 
-		// Handle full URL inputs (e.g., https://site.com/eventticketscenter/TICKET_ID) or plain IDs
 		let extractedId = rawText.trim();
 		if (extractedId.includes("/")) {
 			extractedId = extractedId.split("/").pop() || extractedId;
@@ -82,7 +80,6 @@ export default function ScanPage() {
 								onError={(error) => console.error("Scanner error:", error)}
 								constraints={{ facingMode: "environment" }}
 								components={{
-									audio: true,
 									torch: true,
 									finder: true,
 								}}
