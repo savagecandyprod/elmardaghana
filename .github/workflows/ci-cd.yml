@@ -37,20 +37,6 @@ jobs:
             pnpm dlx convex deploy
           fi
 
-      - name: Build & Deploy App-Frontend to Cloudflare Workers
-        working-directory: ./apps/app
-        run: |
-          if [ "${{ github.ref }}" == "refs/heads/master" ]; then
-            echo "NEXT_PUBLIC_CONVEX_URL=${{ secrets.NEXT_PUBLIC_CONVEX_URL }}" >> .env
-            echo "NEXT_PUBLIC_CONVEX_SITE_URL=${{ secrets.NEXT_PUBLIC_CONVEX_SITE_URL }}" >> .env
-            pnpm run deploy
-          elif [ "${{ github.ref }}" == "refs/heads/dev" ]; then
-            pnpm run deploy
-          fi
-        env:
-          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
-          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
-
       - name: Build & Deploy Web-Frontend to Cloudflare Workers
         working-directory: ./apps/web
         run: |
